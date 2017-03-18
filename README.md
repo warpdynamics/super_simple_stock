@@ -24,7 +24,7 @@ while code is executing, analogous to the real time.
 Example Usage
 -------------
 ```python
-market = Market(900)
+market = Market(trades_expiry_time=900)
 market.insert_stock(stock_symbol="TEA", par_value='1')
 market.insert_stock(stock_symbol="GIN", par_value='1', fixed_dividen='0.02')
 
