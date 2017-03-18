@@ -4,6 +4,12 @@ Requirements
 ------------
 Python 3.5
 
+Instalation
+-----------
+```bash
+pip install super_simples_stock -e
+```
+
 Assumptions
 ------------
 1. Since Stock Price, Dividend, Index, Dividend Yield, P/E ratio can't be 0 in real
