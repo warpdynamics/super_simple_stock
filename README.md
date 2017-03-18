@@ -17,7 +17,7 @@ cases, we assumed that in case of missing data or error, value 0 shell be return
 For example, if there is no trade records in give 15 minutes interval, 
 Stock Price shell be 0 etc.
 
-2. We assume that only synchronose usage of all objects and methods. If time is 
+2. We assumed only synchronous usage of all objects and methods. If time is 
 provided as optional argument (for debuging perpouses) it must always increase 
 while code is executing, analogous to the real time.
 
