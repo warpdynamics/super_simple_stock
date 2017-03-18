@@ -130,7 +130,7 @@ class Market(object):
     def insert_stock(self, stock_symbol, par_value, fixed_dividen=None):
         stock = Stock(stock_symbol, self.trades_expiry_time, par_value, fixed_dividen)
         if stock.stock_symbol in self.stocks:
-            raise Exception("This Stock is already in the market")
+            raise ValueError("This Stock is already in the market")
 
         self.stocks[stock.stock_symbol] = stock
 
@@ -149,6 +149,7 @@ class Market(object):
             #  as we expect rather thousands of stock,
             #  to not lose precision we've chosen to calculate arithmetic mean from logarithms and then return exponent
             #  from the result.
-            return math.exp(sum([math.log(self.get_stock(stock_symbol).get_price(t)) for stock_symbol in self.stocks])/float(len(self.stocks)))
+            logs = [math.log(self.get_stock(stock_symbol).get_price(t)) for stock_symbol in self.stocks]
+            return math.exp(sum(logs)/float(len(self.stocks)))
         except ValueError:
             return 0

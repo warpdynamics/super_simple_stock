@@ -76,7 +76,7 @@ class Test(unittest.TestCase):
         self.assertAlmostEqual(market.get_index(ts(600)), math.sqrt(Decimal('10.8')*Decimal('16.106')))
 
     def test_market_no_ts(self):
-        market = Market(900)
+        market = Market(trades_expiry_time=900)
         market.insert_stock(stock_symbol="TEA", par_value='1')
         market.insert_stock(stock_symbol="GIN", par_value='1', fixed_dividen='0.02')
 
