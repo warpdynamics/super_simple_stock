@@ -146,7 +146,7 @@ class Market(object):
         if t is None:
             t = datetime.datetime.utcnow()
         try:
-            #  as we expect rather thousands of stock,
+            #  as we expect rather thousands of stocks,
             #  to not lose precision we've chosen to calculate arithmetic mean from logarithms and then return exponent
             #  from the result.
             logs = [math.log(self.get_stock(stock_symbol).get_price(t)) for stock_symbol in self.stocks]

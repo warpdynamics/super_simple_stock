@@ -43,9 +43,12 @@ class Test(unittest.TestCase):
         expire = 900
         stock = Stock("TEA", expire, '1')
         tracker = []
-        for T in range(0, 2000):
+        for T in range(0, 5000):
+            if random.random() < 0.5:
+                continue
             val = Decimal(10 + random.random())
             qty = Decimal(random.randint(100, 200))
+
             tracker.append((T, val, qty))
             trade = Trade(Trade.buy, val, qty)
             stock.record_trade(trade, ts(T))
