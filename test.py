@@ -77,17 +77,17 @@ class Test(unittest.TestCase):
 
     def test_market_no_ts(self):
         market = Market(900)
-        market.insert_stock("TEA", '1')
-        market.insert_stock("GIN", '1', '0.02')
+        market.insert_stock(stock_symbol="TEA", par_value='1')
+        market.insert_stock(stock_symbol="GIN", par_value='1', fixed_dividen='0.02')
 
-        stock_tea = market.get_stock("TEA")
-        stock_gin = market.get_stock("GIN")
+        stock_tea = market.get_stock(stock_symbol="TEA")
+        stock_gin = market.get_stock(stock_symbol="GIN")
 
-        stock_tea.record_dividend('3.20')
-        stock_tea.record_trade(Trade(Trade.buy, '10', '100'))
-        stock_gin.record_trade(Trade(Trade.buy, '13.45', '100'))
-        stock_tea.record_trade(Trade(Trade.buy, '11', '400'))
-        stock_gin.record_trade(Trade(Trade.buy, '16.77', '400'))
+        stock_tea.record_dividend(value='3.20')
+        stock_tea.record_trade(trade=Trade(indicator=Trade.buy, price='10', quantity='100'))
+        stock_gin.record_trade(trade=Trade(indicator=Trade.buy, price='13.45', quantity='100'))
+        stock_tea.record_trade(trade=Trade(indicator=Trade.buy, price='11', quantity='400'))
+        stock_gin.record_trade(trade=Trade(indicator=Trade.buy, price='16.77', quantity='400'))
 
         self.assertEqual(stock_tea.get_price(), Decimal('10.8'))
         self.assertAlmostEqual(stock_tea.dividend_yield(), Decimal('3.20')/Decimal('10.8'))
