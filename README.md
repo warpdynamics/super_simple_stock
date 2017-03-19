@@ -7,7 +7,7 @@ Python 3.5
 Instalation
 -----------
 ```bash
-pip install super_simples_stock -e
+pip install -e super_simples_stock
 ```
 
 Assumptions
