@@ -43,7 +43,7 @@ class Test(unittest.TestCase):
         expire = 900
         stock = Stock("TEA", expire, '1')
         tracker = []
-        for T in range(0, 5000):
+        for T in range(0, 10000):
             if random.random() < 0.5:
                 continue
             val = Decimal(10 + random.random())
